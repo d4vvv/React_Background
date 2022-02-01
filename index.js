@@ -80,7 +80,7 @@ app.delete('/api/notes/:id', (request, response) => {
   })
 
 app.put('/api/notes/:id', (request, response) => {
-    console.log(`got a request to change importance of ${request.params.id} note`)
+    response.status(204).end()
 })
     
 const PORT = process.env.PORT || 3001
