@@ -85,7 +85,7 @@ app.put('/api/notes/:id', (request, response) => {
     updatedNote = {...note, important: !note.important}
     notes = notes.map(n => n.id !== id ? n : updatedNote)
     
-    response.status(202).end()
+    response.json(note)
 
 })
     
