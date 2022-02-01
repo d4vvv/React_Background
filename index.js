@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const { request, response } = require('express')
 const app = express()
 
 app.use(cors())
@@ -77,6 +78,10 @@ app.delete('/api/notes/:id', (request, response) => {
     notes = notes.filter(note => note.id !== id)
     response.status(204).end()
   })
+
+app.put('/api/notes/:id', (request, response) => {
+    console.log(`got a request to change importance of ${request.params.id} note`)
+})
     
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
