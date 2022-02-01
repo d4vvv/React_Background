@@ -83,7 +83,7 @@ app.put('/api/notes/:id', (request, response) => {
     const id = Number(request.params.id)
     const note = notes.filter(n => n.id === id)
     updatedNote = {...note, important: !note.important}
-    notes.map(n => n.id !== id ? n : updatedNote)
+    notes = notes.map(n => n.id !== id ? n : updatedNote)
     
     response.status(202).end()
 
