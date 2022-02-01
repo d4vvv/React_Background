@@ -82,10 +82,10 @@ app.delete('/api/notes/:id', (request, response) => {
 app.put('/api/notes/:id', (request, response) => {
     const id = Number(request.params.id)
     const note = notes.filter(n => n.id === id)[0]
-    updatedNote = {...note, important: !note.important}
+    const updatedNote = {...note, important: !note.important}
     notes = notes.map(n => n.id !== id ? n : updatedNote)
     
-    response.json(note)
+    response.json(updatedNote)
 
 })
     
